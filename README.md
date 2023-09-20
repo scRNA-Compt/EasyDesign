@@ -5,9 +5,9 @@
 - [Design online](#design-online)
 - [Installation](#Installation)
   - [Dependencies](#Dependencies)
-  - [Setting up a conda environment](#setting_up_a_conda_environment)
-  - [Install and run](#install_and_run)
-- [Getting Started](#getting_started)
+  - [Setting up a conda environment](#setting-up-a-conda-environment)
+  - [Install and run](#install-and-run)
+- [Getting Started](#getting-started)
 - [Citation](#Citation)
 
 ## Introduction 
