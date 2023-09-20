@@ -1,83 +1,75 @@
 # EasyDesign
-### Table of contents
+## Table of contents
 
 - [Introduction](#Introduction)
-- [Design online](Design online)
+- [Design online](#design-online)
 - [Installation](#Installation)
   - [Dependencies](#Dependencies)
-  - [Setting up a conda environment](#Setting up a conda environment)
-  - [Install and run](Install and run)
-- [Getting Started](#Getting Started)
+  - [Setting up a conda environment](#setting_up_a_conda_environment)
+  - [Install and run](#install_and_run)
+- [Getting Started](#getting_started)
 - [Citation](#Citation)
 
-
-
-#### Introduction
+## Introduction 
 
 Enhanced crRNA design system with Deep learning for Cas12a-mediated Diagnostics, termed EasyDesign. EasyDesign predicts sgRNAs based on deep learning techniques and its design scheme support recombinase polymerase amplification (RPA).
 
-
-
-### Design online
+## Design online
 
 You can perform online design through our [website](https://crispr.zhejianglab.com/), eliminating the need for installation steps.
 
+## Installation
 
+### Dependencies
 
-#### Installation
+- Python == 3.8
+- Fastapi >= 0.78.0
+- Uvicorn >= 0.18.1
+- Pandas >= 1.0.0
+- Protobuf <= 3.20.3
+- Python-multipart >= 0.0.6
+- NumPy >= 1.16.0, < 1.19.0
+- SciPy == 1.4.1
+- TensorFlow == 2.3.2
 
-- Dependencies
+For alignment features, EasyDesign also requires a path to an executable of [MAFFT](https://mafft.cbrc.jp/alignment/software/).
 
-  - Python == 3.8
-  - Fastapi >= 0.78.0
-  - Uvicorn >= 0.18.1
-  - Pandas >= 1.0.0
-  - Protobuf <= 3.20.3
-  - Python-multipart >= 0.0.6
-  - NumPy >= 1.16.0, < 1.19.0
-  - SciPy == 1.4.1
-  - TensorFlow == 2.3.2
+### Setting up a conda environment
 
-  For alignment features, EasyDesign also requires a path to an executable of [MAFFT](https://mafft.cbrc.jp/alignment/software/).
+_Note: This section is optional, but it can be helpful for Python beginners to effectively resolve dependency issues across different projects._
 
-- Setting up a conda environment
+[conda](https://conda.io/en/latest/) and [Miniconda](https://conda.io/en/latest/miniconda.html) are popular solutions for managing dependencies. Here, we will focus on demonstrating the usage of Miniconda on Linux. 
 
-  _Note: This section is optional, but it can be helpful for Python beginners to effectively resolve dependency issues across different projects._
+```bash
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+```
 
-  [conda](https://conda.io/en/latest/) and [Miniconda](https://conda.io/en/latest/miniconda.html) are popular solutions for managing dependencies. Here, we will focus on demonstrating the usage of Miniconda on Linux. 
+Once you have conda, you can [create](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands) an environment for EasyDesign with Python 3.8:
 
-  ```bash
-  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-  bash Miniconda3-latest-Linux-x86_64.sh
-  ```
+```bash
+conda create -n easyDesign python=3.8
+```
 
-  Once you have conda, you can [create](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-with-commands) an environment for EasyDesign with Python 3.8:
+Then, you can activate the `EasyDesign` environment:
 
-  ```bash
-  conda create -n easyDesign python=3.8
-  ```
+```bash
+conda activate easyDesign
+```
 
-  Then, you can activate the `EasyDesign` environment:
+After the environment is created and activated, you can install EasyDesign as described below. You will need to activate the environment each time you use EasyDesign.
 
-  ```bash
-  conda activate easyDesign
-  ```
+### Install and run
 
-  After the environment is created and activated, you can install EasyDesign as described below. You will need to activate the environment each time you use EasyDesign.
+```bash
+git clone https://github.com/scRNA-Compt/EasyDesign.git
+cd EasyDesign
+pip install -e .
 
- - Install and run
+python ./web/server.py
+```
 
-   ```bash
-   git clone https://github.com/scRNA-Compt/EasyDesign.git
-   cd EasyDesign
-   pip install -e .
-   
-   python ./web/server.py
-   ```
-
-
-
-### Getting Started
+## Getting Started
 
 For quick start of EasyDesign, we provide an example dataset provided the examples/ folder, which includes one DNA sequence. Additionally, we recommend providing a URL that allows downloading the FASTA file as input.
 
@@ -112,8 +104,6 @@ The output is:
 - Location: /data/easyDesign/output/{job_id}/result/result.0.tsv
 - The main output information includes: guide-expected-activities, guide-target-sequences, guide-target-sequence-positions...
 
-
-
-### Citation
+## Citation
 
 We now have a paper you can cite our paper as:
