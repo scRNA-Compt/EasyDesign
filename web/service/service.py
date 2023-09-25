@@ -12,6 +12,7 @@ work_space_path = opt.WORK_SPACE
 from fastapi import HTTPException
 
 
+# Populate parameters and run
 def runAdaptCmd(para: Adaptor) -> int:
     tmp_upload_url = f"http://127.0.0.1:{opt.SERVER_PORT}/upload_result"
     workpath = mypath + para.job_id + os.sep
@@ -72,10 +73,8 @@ def runAdaptCmd(para: Adaptor) -> int:
     cmd = cmd + " --cluster-threshold " + str(para.cluster_threshold)
     cmd = cmd + " --id-frac " + str(para.idfrac)
     modelname = para.ai_model
-    classify_path = work_space_path + "easyDesign/models/classify/" + modelname
-    regress_path = work_space_path + "easyDesign/models/regress/" + modelname
-    print(classify_path)
-    print(regress_path)
+    classify_path = work_space_path + "easydesign/models/classify/" + modelname
+    regress_path = work_space_path + "easydesign/models/regress/" + modelname
     if (not os.path.exists(classify_path)) or (not os.path.exists(regress_path)):
         raise HTTPException(status_code=501, detail="classify_path or regress_path does not exists")
     cmd = cmd + " --predict-activity-model-path " + classify_path + " " + regress_path + " "
@@ -108,8 +107,8 @@ def runAdaptCmd(para: Adaptor) -> int:
         ret += os.system("echo 'for f in `ls -1 alignment*.fasta` ;do files=$files$f\",\";done' >> " + tmpcmdfile)
     ret += os.system(
         "echo '/usr/bin/curl --location --request POST -X POST \"" + tmp_upload_url + "\" "
-                                                                                               "--header \"User-Agent: " \
-                                                                                               "Apipost client Runtime/+https://www.apipost.cn/\" --form \"uploadResultAddr="+para.upload_result_addr+"\" --form \"jobId=" + str(
+                                                                                      "--header \"User-Agent: " \
+                                                                                      "Apipost client Runtime/+https://www.apipost.cn/\" --form \"uploadResultAddr=" + para.upload_result_addr + "\" --form \"jobId=" + str(
             para.job_id) + "\"  >> " + workpath + "runningprocess.o1 2>> " + workpath + "runningprocess.o2 ' >> " + tmpcmdfile)
     if ret != 0:
         return 3000 + ret
@@ -123,7 +122,8 @@ def runAdaptCmd(para: Adaptor) -> int:
     return ret
 
 
-def convert_and_upload(uploadResultAddr:str, jobId:str):
+# Convert and upload result file to remote
+def convert_and_upload(uploadResultAddr: str, jobId: str):
     upload_result_addr = uploadResultAddr + "/api/job/uploadResult"
     job_id = jobId
     result_path, log_path = convert_and_saveresult(job_id)
@@ -137,6 +137,7 @@ def convert_and_upload(uploadResultAddr:str, jobId:str):
     requests.post(upload_result_addr, data=data, files=resultFiles)
 
 
+# Convert and save result file to disk
 def convert_and_saveresult(job_id: str):
     input_dir = mypath + job_id + os.sep
     input_path = input_dir + "result.0.tsv"
@@ -154,11 +155,11 @@ def convert_and_saveresult(job_id: str):
         guide_info = (candidates.values[0][rcl.index("guide-expected-activities")], guide,
                       candidates.values[0][rcl.index("guide-target-sequence-positions")])
         for candidate in candidates.values:
-            if len(left_map) <= 4: # left primer keep <=5
+            if len(left_map) <= 4:  # left primer keep <=5
                 left_start = candidate[rcl.index("left-primer-start")]
                 if left_start not in left_map:
                     left_map[left_start] = (left_start, candidate[rcl.index("left-primer-target-sequences")])
-            if len(right_map) <= 4: # right primer keep <=5
+            if len(right_map) <= 4:  # right primer keep <=5
                 right_start = candidate[rcl.index("right-primer-start")]
                 if right_start not in right_map:
                     raw_seq = candidate[rcl.index("right-primer-target-sequences")]
