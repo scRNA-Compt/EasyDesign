@@ -25,7 +25,7 @@ setup(name='easyDesign',
                         'uvicorn>=0.18.1', 'pandas>=1.0.0', 'protobuf<=3.20.3', 'python-multipart>=0.0.6'],
       classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: Apache-2.0",
         "Operating System :: OS Independent",
       ],
       scripts=[
