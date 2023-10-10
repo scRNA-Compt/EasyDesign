@@ -75,16 +75,18 @@ For quick start of EasyDesign, we provide an example dataset provided the exampl
 
 You can use tools like curl, request, or similar ones for making the API call. Now ,the demonstration of using curl is as follows.
 
+_Note: If the fasta_url download link is not available, you can customize the fasta_url as long as it can be downloaded, or set the fasta_url to empty and provide the absolute path for example.fasta in source folder for fasta_file parameter._
+
 ```
 curl -X POST -H "Content-Type: application/json" -d '{
-    "fasta_url": "http://xxx.xxx.x.xxx/example.fasta",  
+    "fasta_url": "http://s2b3akxgz.bkt.gdipper.com/example.fasta",  
     "fasta_file": "", 
     "ai_model": "cas12a",
     "gl":21, 
     "amplification_mode": "RPA",
     "bestntargets": 5,
     "job_id": "UGEqrihrEl",
-    "upload_result_addr": "http://localhost:8000",
+    "upload_result_addr": "http://localhost:8001",
     "reversed": 0
 }' http://127.0.0.1:8001/postadapt
 ```

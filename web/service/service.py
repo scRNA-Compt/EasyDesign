@@ -73,8 +73,8 @@ def runAdaptCmd(para: Adaptor) -> int:
     cmd = cmd + " --cluster-threshold " + str(para.cluster_threshold)
     cmd = cmd + " --id-frac " + str(para.idfrac)
     modelname = para.ai_model
-    classify_path = work_space_path + "easydesign/models/classify/" + modelname
-    regress_path = work_space_path + "easydesign/models/regress/" + modelname
+    classify_path = work_space_path + "easyDesign/models/classify/" + modelname
+    regress_path = work_space_path + "easyDesign/models/regress/" + modelname
     if (not os.path.exists(classify_path)) or (not os.path.exists(regress_path)):
         raise HTTPException(status_code=501, detail="classify_path or regress_path does not exists")
     cmd = cmd + " --predict-activity-model-path " + classify_path + " " + regress_path + " "
