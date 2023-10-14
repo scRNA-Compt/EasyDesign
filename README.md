@@ -73,7 +73,7 @@ python ./web/server.py
 
 For quick start of EasyDesign, we provide an example dataset provided the examples/ folder, which includes one DNA sequence. Additionally, we recommend providing a URL that allows downloading the FASTA file as input.
 
-You can use tools like curl, request, or similar ones for making the API call. Now ,the demonstration of using curl is as follows.
+You can use tools like curl, request, or similar ones for making the API call. Now open another terminal session  and the demonstration of using curl is as follows.
 
 _Note: If the fasta_url download link is not available, you can customize the fasta_url as long as it can be downloaded, or set the fasta_url to empty and provide the absolute path for example.fasta in source folder for fasta_file parameter._
 
@@ -105,6 +105,8 @@ The output is:
 
 - Location: /data/easyDesign/output/{job_id}/result/result.0.tsv
 - The main output information includes: guide-expected-activities, guide-target-sequences, guide-target-sequence-positions...
+
+Once finished, you can stop the server with `Ctrl-C` at any time
 
 ## Citation
 
