@@ -8,6 +8,7 @@
   - [Setting up a conda environment](#setting-up-a-conda-environment)
   - [Install and run](#install-and-run)
 - [Getting Started](#getting-started)
+- [Data clean](#data-clean)
 - [Citation](#Citation)
 
 ## Introduction 
@@ -107,6 +108,13 @@ The output is:
 - The main output information includes: guide-expected-activities, guide-target-sequences, guide-target-sequence-positions...
 
 Once finished, you can stop the server with `Ctrl-C` at any time
+
+# Data clean
+
+- For output data part
+  - The default output directory is `/data/easyDesign`, you can clean data using a data cleaning script `rm -rf /data/easyDesign/output/{job_id}`. You can also delete all the output by removing the default folder.
+- For source folder
+  - `rm -rf /your_source_folder/EasyDesign`
 
 ## Citation
 
