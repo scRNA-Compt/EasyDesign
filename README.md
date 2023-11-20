@@ -80,7 +80,7 @@ _Note: If the fasta_url download link is not available, you can customize the fa
 
 ```
 curl -X POST -H "Content-Type: application/json" -d '{
-    "fasta_url": "http://s2b3akxgz.bkt.gdipper.com/example.fasta",  
+    "fasta_url": "https://drive.usercontent.google.com/download?id=19gtOYesjCd2x2LyYTPIveOT41dzzkmXZ",  
     "fasta_file": "", 
     "ai_model": "cas12a",
     "gl":21, 
