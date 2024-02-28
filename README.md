@@ -31,7 +31,7 @@ You can perform online design through our [website](https://crispr.zhejianglab.c
 - Python-multipart >= 0.0.6
 - NumPy >= 1.16.0, < 1.19.0
 - SciPy == 1.4.1
-- TensorFlow == 2.3.2
+- TensorFlow == 2.3.0
 
 For alignment features, EasyDesign also requires a path to an executable of [MAFFT](https://mafft.cbrc.jp/alignment/software/).
 
@@ -61,12 +61,21 @@ conda activate easyDesign
 After the environment is created and activated, you can install EasyDesign as described below. You will need to activate the environment each time you use EasyDesign.
 
 ### Install and run
-
+- Download the source code.
 ```bash
 git clone https://github.com/scRNA-Compt/EasyDesign.git
 cd EasyDesign
+```
+- When use conda as package management(choose conda or pip).
+```bash
+conda env create -f environment.yml
+```
+- When use pip that you can do this.
+```shell
 pip install -e .
-
+```
+- Start the service.
+```bash
 python ./web/server.py
 ```
 

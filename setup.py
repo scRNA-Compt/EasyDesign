@@ -21,7 +21,7 @@ setup(name='easyDesign',
       package_data={
         "easyDesign": ["models/*/*/*/assets.extra/*", "models/*/*/*/variables/*", "models/*/*/*/*", "models/*/*/*"],
       },
-      install_requires=['numpy>=1.16.0,<1.19.0', 'scipy==1.4.1', 'tensorflow==2.3.2', 'fastapi>=0.78.0',
+      install_requires=['numpy>=1.16.0,<1.19.0', 'scipy==1.4.1', 'tensorflow==2.3.0', 'fastapi>=0.78.0',
                         'uvicorn>=0.18.1', 'pandas>=1.0.0', 'protobuf<=3.20.3', 'python-multipart>=0.0.6'],
       classifiers=[
         "Programming Language :: Python :: 3",
