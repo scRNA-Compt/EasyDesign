@@ -17,7 +17,8 @@ Enhanced crRNA design system with Deep learning for Cas12a-mediated Diagnostics,
 
 ## Design online
 
-You can perform online design through our [website](https://crispr.zhejianglab.com/), eliminating the need for installation steps.
+You can perform online design through our [website](https://crispr.zhejianglab.com/), eliminating the need for 
+installation steps. Additionally, for the website operation video, you can click [here](https://crispr.zhejianglab.com/help).
 
 ## Installation
 
